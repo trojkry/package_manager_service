@@ -1,3 +1,4 @@
+# importy
 from flask import Blueprint, request, jsonify
 
 # Vytvoření blueprintu (modulu)
