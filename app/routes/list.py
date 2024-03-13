@@ -5,7 +5,7 @@ import json
 bp = Blueprint('list', __name__)
 
 # Načtení konfiguračního souboru
-with open('../config/config.json') as config_file:
+with open('config.json') as config_file:
     config = json.load(config_file)
 
 @bp.route('/packages/list', methods=['GET'])
