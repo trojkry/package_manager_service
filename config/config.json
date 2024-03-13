@@ -1,0 +1,7 @@
+{
+    "distributions": {
+      "ubuntu": "dpkg --get-selections",
+      "centos": "yum list installed"
+    }
+}
+  
