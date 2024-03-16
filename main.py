@@ -12,6 +12,10 @@ app.register_blueprint(list.bp)
 #app.register_blueprint(uninstall.bp)
 #app.register_blueprint(status.bp)
 #app.register_blueprint(dependencies.bp)
+##app.register_blueprint(update.bp)
+##app.register_blueprint(uninstall.bp)
+##app.register_blueprint(status.bp)
+##app.register_blueprint(dependencies.bp)
 
 # Spuštění aplikace
 if __name__ == '__main__':
