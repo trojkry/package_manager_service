@@ -1,2 +1,2 @@
 
-curl -X POST -H "Content-Type: application/json" -d "{\"command\": \"dir\"}" http://localhost:5000/packages/install
+curl -X POST -H "Content-Type: application/json" -d '{"command": "dir"}' http://localhost:5000/packages/execute
