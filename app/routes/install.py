@@ -29,7 +29,7 @@ def install_packages():
         # Spuštění příkazů pro instalaci balíčků pro daný balíčkovací systém
         results = {}
         for command in package_manager_commands:
-            command_to_run = [command] + packages  # Upravený způsob spojení příkazu s balíčky
+            command_to_run = [command] + packages  # Seznam s příkazem a balíčky
             result = subprocess.run(command_to_run, capture_output=True, text=True)
 
             # Přidání výsledku operace do slovníku
