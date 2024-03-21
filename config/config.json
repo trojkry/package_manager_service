@@ -2,44 +2,44 @@
   "apt": {
     "install": ["apt-get install -y"],
     "update": ["apt-get update"],
-    "remove": ["apt-get", "remove"],
-    "search": ["apt-cache", "search"],
-    "upgrade": ["apt-get", "upgrade"],
+    "remove": ["apt-get remove"],
+    "search": ["apt-cache search"],
+    "upgrade": ["apt-get upgrade"],
     "show_upgradable": ["apt list --upgradable"]
   },
   "yum": {
-    "install": ["yum", "install"],
-    "update": ["yum", "update"],
-    "remove": ["yum", "remove"],
-    "search": ["yum", "search"],
-    "upgrade": ["yum", "upgrade"]
+    "install": ["yum install"],
+    "update": ["yum update"],
+    "remove": ["yum remove"],
+    "search": ["yum search"],
+    "upgrade": ["yum upgrade"]
   },
   "dnf": {
-    "install": ["dnf", "install"],
-    "update": ["dnf", "update"],
-    "remove": ["dnf", "remove"],
-    "search": ["dnf", "search"],
-    "upgrade": ["dnf", "upgrade"]
+    "install": ["dnf install"],
+    "update": ["dnf update"],
+    "remove": ["dnf remove"],
+    "search": ["dnf search"],
+    "upgrade": ["dnf upgrade"]
   },
   "zypper": {
-    "install": ["zypper", "install"],
-    "update": ["zypper", "update"],
-    "remove": ["zypper", "remove"],
-    "search": ["zypper", "search"],
-    "upgrade": ["zypper", "update"]
+    "install": ["zypper install"],
+    "update": ["zypper update"],
+    "remove": ["zypper remove"],
+    "search": ["zypper search"],
+    "upgrade": ["zypper update"]
   },
   "pacman": {
-    "install": ["pacman", "-S"],
-    "update": ["pacman", "-Sy"],
-    "remove": ["pacman", "-R"],
-    "search": ["pacman", "-Ss"],
-    "upgrade": ["pacman", "-Syu"]
+    "install": ["pacman -S"],
+    "update": ["pacman -Sy"],
+    "remove": ["pacman -R"],
+    "search": ["pacman -Ss"],
+    "upgrade": ["pacman -Syu"]
   },
   "apk": {
-    "install": ["apk", "add"],
-    "update": ["apk", "update"],
-    "remove": ["apk", "del"],
-    "search": ["apk", "search"],
-    "upgrade": ["apk", "upgrade"]
+    "install": ["apk add"],
+    "update": ["apk update"],
+    "remove": ["apk del"],
+    "search": ["apk search"],
+    "upgrade": ["apk upgrade"]
   }
 }
