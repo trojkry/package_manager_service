@@ -4,7 +4,7 @@
     "update": ["apt-get update"],
     "remove": ["apt-get remove"],
     "search": ["apt-cache search"],
-    "upgrade": ["apt-get upgrade"],
+    "upgrade": ["apt-get upgrade -y"],
     "show_upgradable": ["apt list --upgradable"]
   },
   "yum": {
