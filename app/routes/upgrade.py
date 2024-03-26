@@ -40,7 +40,7 @@ def upgrade_packages():
 
             if result.returncode == 0:
                 if not packages:
-                    return jsonify({"success": f"Packages were successfully upgraded"})
+                    return jsonify({"success": f"Packages were successfully upgraded"}), 200
                 else:
                     return jsonify({'success': f'Package {packages} was successfully upgraded.'}), 200
 
