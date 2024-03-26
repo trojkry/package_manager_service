@@ -8,34 +8,42 @@ upgrade = Blueprint('upgrade', __name__)
 @upgrade.route('/packages/upgrade', methods=['POST'])
 def upgrade_packages():
     try:
-        # Načtení balíčkovacího systému z nastavení
-        package_manager = settings.PACKAGE_MANAGER
+        data = request.json
+        packages = data.get('packages', [])
         
-        # Načtení příkazů pro balíčkovací systém z config.json
+
+        package_manager = data.get('package_manager', settings.PACKAGE_MANAGER)
+
         with open('config/config.json', 'r') as config_file:
             config = json.load(config_file)
 
         package_manager_commands = config.get(package_manager)
 
         if package_manager_commands is None:
-            return jsonify({'error': f'No update commands found for package manager: {package_manager}'}), 500
+            return jsonify({'error': f'No upgrade commands found for package manager: {package_manager}'}), 500
 
-        # Spuštění příkazu pro aktualizaci repozitářů
-        upgrade_command = package_manager_commands.get('upgrade', [])
-        if upgrade_command:
-            result_upgrade = subprocess.run(upgrade_command, capture_output=True, text=True, shell=True)
-        else:
-            result_upgrade = {'returncode': -1, 'output': '', 'error': 'No update command provided'}
+        results = {}
+        for command in package_manager_commands.get('upgrade', []):  # Přístup k příkazům pro instalaci balíčků
+            if not packages:
+                command_to_run = [command]
+            else:
+                command_to_run = [command] + packages  # Seznam s příkazem a balíčky
+            command_to_run_str = ' '.join(command_to_run)  # Spojení prvků do jednoho řetězce
+            print("Command to run:", command_to_run_str)
+            result = subprocess.run(command_to_run_str, capture_output=True, text=True, shell=True)  # Spuštění příkazu
 
-        # Vytvoření odpovědi
-        response = {
-            'update_result': {
-                "returncode": result_upgrade.returncode,
-                "output": result_upgrade.stdout,
-                "error": result_upgrade.stderr
+            results[command] = {
+                "returncode": result.returncode,
+                "output": result.stdout,
+                "error": result.stderr
             }
-        }
 
-        return jsonify(response), 200
+            if result.returncode == 0:
+                if not packages:
+                    return jsonify({"success": f"Packages were successfully upgraded"})
+                else:
+                    return jsonify({'success': f'Package {packages} was successfully upgraded.'}), 200
+
+        return jsonify(results), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500

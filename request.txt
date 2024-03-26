@@ -1,1 +1,1 @@
-    curl -X POST -H "Content-Type: application/json" -d "{\"command\": \"apt list\"}" http://81.2.233.94:5000/packages/execute
+curl -X POST -H "Content-Type: application/json" -d '{"packages": ["apt-utils"]}' http://127.0.0.1:5000/packages/install
