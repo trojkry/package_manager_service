@@ -2,44 +2,55 @@
   "apt": {
     "install": ["apt-get install -y"],
     "update": ["apt-get update"],
-    "remove": ["apt-get remove"],
+    "remove": ["apt-get remove -y"],
     "search": ["apt-cache search"],
     "upgrade": ["apt-get upgrade -y"],
-    "show_upgradable": ["apt list --upgradable"]
+    "show_upgradable": ["apt list --upgradable"],
+    "list": ["apt list"]
   },
   "yum": {
     "install": ["yum install"],
     "update": ["yum update"],
     "remove": ["yum remove"],
     "search": ["yum search"],
-    "upgrade": ["yum upgrade"]
+    "upgrade": ["yum upgrade"],
+    "show_upgradable": [""],
+    "list": []
   },
   "dnf": {
     "install": ["dnf install"],
     "update": ["dnf update"],
     "remove": ["dnf remove"],
     "search": ["dnf search"],
-    "upgrade": ["dnf upgrade"]
+    "upgrade": ["dnf upgrade"],
+    "show_upgradable": [],
+    "list": []
   },
   "zypper": {
     "install": ["zypper install"],
     "update": ["zypper update"],
     "remove": ["zypper remove"],
     "search": ["zypper search"],
-    "upgrade": ["zypper update"]
+    "upgrade": ["zypper update"],
+    "show_upgradable": [],
+    "list": []
   },
   "pacman": {
     "install": ["pacman -S"],
     "update": ["pacman -Sy"],
     "remove": ["pacman -R"],
     "search": ["pacman -Ss"],
-    "upgrade": ["pacman -Syu"]
+    "upgrade": ["pacman -Syu"],
+    "show_upgradable": [],
+    "list":[]
   },
   "apk": {
     "install": ["apk add"],
     "update": ["apk update"],
     "remove": ["apk del"],
     "search": ["apk search"],
-    "upgrade": ["apk upgrade"]
+    "upgrade": ["apk upgrade"],
+    "show_upgradable":[],
+    "list":[]
   }
 }
