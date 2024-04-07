@@ -23,14 +23,14 @@ def upgrade_packages():
             return jsonify({'error': f'No upgrade commands found for package manager: {package_manager}'}), 500
 
         results = {}
-        for command in package_manager_commands.get('upgrade', []):  # Přístup k příkazům pro instalaci balíčků
+        for command in package_manager_commands.get('upgrade', []):
             if not packages:
                 command_to_run = [command]
             else:
-                command_to_run = [command] + packages  # Seznam s příkazem a balíčky
-            command_to_run_str = ' '.join(command_to_run)  # Spojení prvků do jednoho řetězce
+                command_to_run = [command] + packages  
+            command_to_run_str = ' '.join(command_to_run) 
             print("Command to run:", command_to_run_str)
-            result = subprocess.run(command_to_run_str, capture_output=True, text=True, shell=True)  # Spuštění příkazu
+            result = subprocess.run(command_to_run_str, capture_output=True, text=True, shell=True)  
 
             results[command] = {
                 "returncode": result.returncode,

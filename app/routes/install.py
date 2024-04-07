@@ -25,7 +25,7 @@ def install_packages():
 
         if package_manager_commands is None:
             return jsonify({'error': f'No installation commands found for package manager: {package_manager}'}), 500
-
+        
         # Spuštění příkazů pro instalaci balíčků pro daný balíčkovací systém
         results = {}
         for command in package_manager_commands.get('install', []):  # Přístup k příkazům pro instalaci balíčků
