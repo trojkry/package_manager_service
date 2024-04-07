@@ -6,6 +6,7 @@ from app.routes.upgrade import upgrade
 from app.routes.remove import remove
 from app.routes.list import list
 from app.routes.search import search
+import ssl
 
 # Inicializace Flask frameworku
 app = Flask(__name__)
@@ -20,4 +21,8 @@ app.register_blueprint(search)
 
 # Spuštění aplikace
 if __name__ == '__main__':
-    app.run(debug=True, ssl_context='adhoc')
+    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+    context.load_cert_chain('cert.pem', 'key.pem')
+    app.run(debug=True, ssl_context=context)
+
+    
