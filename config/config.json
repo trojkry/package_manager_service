@@ -14,8 +14,8 @@
     "remove": ["yum remove"],
     "search": ["yum search"],
     "upgrade": ["yum upgrade"],
-    "show_upgradable": [""],
-    "list": []
+    "show_upgradable": ["yum list updates"],
+    "list": ["yum list installed"]
   },
   "dnf": {
     "install": ["dnf install"],
@@ -23,8 +23,8 @@
     "remove": ["dnf remove"],
     "search": ["dnf search"],
     "upgrade": ["dnf upgrade"],
-    "show_upgradable": [],
-    "list": []
+    "show_upgradable": ["dnf list updates"],
+    "list": ["dnf list installed"]
   },
   "zypper": {
     "install": ["zypper install"],
@@ -32,8 +32,8 @@
     "remove": ["zypper remove"],
     "search": ["zypper search"],
     "upgrade": ["zypper update"],
-    "show_upgradable": [],
-    "list": []
+    "show_upgradable": ["zypper list-updates"],
+    "list": ["zypper search --installed-only"]
   },
   "pacman": {
     "install": ["pacman -S"],
@@ -41,8 +41,8 @@
     "remove": ["pacman -R"],
     "search": ["pacman -Ss"],
     "upgrade": ["pacman -Syu"],
-    "show_upgradable": [],
-    "list":[]
+    "show_upgradable": ["pacman -Qu"],
+    "list": ["pacman -Q"]
   },
   "apk": {
     "install": ["apk add"],
@@ -50,7 +50,7 @@
     "remove": ["apk del"],
     "search": ["apk search"],
     "upgrade": ["apk upgrade"],
-    "show_upgradable":[],
-    "list":[]
+    "show_upgradable":["apk list -u"],
+    "list":["apk info"]
   }
 }
